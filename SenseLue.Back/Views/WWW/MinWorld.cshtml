@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "MinWorld";
+    Layout = "~/Views/_LayoutPageBase.cshtml";
+}
+<h2>小字编辑</h2>
+<input id="title" class="form-control" type="text" placeholder="标题" style="border-radius:0px;" />
+<textarea id="descripition" class="form-control" rows="5" style="border-radius:0px;" placeholder="简介/说明"></textarea>
+<textarea id="minWordContent" class="form-control" rows="14" placeholder="随手小字"></textarea>
+<br />
+<div style="margin:0px auto;text-align:center;">
+    <input id="btnsubmit" class="btn btn-primary" type="button" value="提交" style="width:200px;" />
+</div>
+
+
+
+@section ScriptBody{
+    <script>
+        $(function () {
+
+            $("#btnsubmit").click(function () {
+                var content = $('#minWordContent').val();
+                var descripition = $("#descripition").val();
+                var title = $("#title").val();
+                if (title == "") {
+                    alert("请填写标题");
+                    $("#title").focus();
+                    return;
+                }
+          
+                $.ajax({
+                    type: 'POST',
+                    url: '/WWW/OperationArticle',
+                    data: {
+                        aType: 'MinWorld',
+                        aTitle: title,
+                        aDescripition: descripition,
+                        aContent: content,
+                    },
+                    success: function (data) {
+                        if (data == "ok") {
+                            alert("success");
+                        }
+                    }
+
+                });
+          
+            })
+
+        });
+
+    </script>
+}
+

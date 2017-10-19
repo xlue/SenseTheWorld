@@ -1,0 +1,382 @@
+﻿<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.Net.Compilers.2.3.1\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.3.1\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.6\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.6\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A00F75CF-6FA2-4E72-BFC9-4A3062CAC15A}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SenseLue.Web</RootNamespace>
+    <AssemblyName>SenseLue.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\LUEBIN\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.6\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\contact.html" />
+    <Content Include="Content\css\animate.css" />
+    <Content Include="Content\css\bootstrap.css" />
+    <Content Include="Content\css\css.css" />
+    <Content Include="Content\css\icomoon.css" />
+    <Content Include="Content\css\style.css" />
+    <Content Include="Content\fonts\bootstrap\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\fonts\icomoon\icomoon.svg" />
+    <Content Include="Content\fonts\icomoon\icomoon\demo-files\demo.css" />
+    <Content Include="Content\fonts\icomoon\icomoon\demo-files\demo.js" />
+    <Content Include="Content\fonts\icomoon\icomoon\demo.html" />
+    <Content Include="Content\fonts\icomoon\icomoon\fonts\icomoon.svg" />
+    <Content Include="Content\fonts\icomoon\icomoon\Read Me.txt" />
+    <Content Include="Content\fonts\icomoon\icomoon\style.css" />
+    <Content Include="Content\fonts\simple-line-icons\Simple-Line-Icons.svg" />
+    <Content Include="Content\images\brand-nav.png" />
+    <Content Include="Content\images\cover_play.png" />
+    <Content Include="Content\images\cse.jpg" />
+    <Content Include="Content\images\font.png" />
+    <Content Include="Content\images\pic1.jpg" />
+    <Content Include="Content\images\pic2.jpg" />
+    <Content Include="Content\images\pic3.jpg" />
+    <Content Include="Content\images\pic4.jpg" />
+    <Content Include="Content\images\Word.png" />
+    <Content Include="Content\index.html" />
+    <Content Include="Content\inside.html" />
+    <Content Include="Content\js\bootstrap.min.js" />
+    <Content Include="Content\js\jquery.easing.1.3.js" />
+    <Content Include="Content\js\jquery.min.js" />
+    <Content Include="Content\js\jquery.waypoints.min.js" />
+    <Content Include="Content\js\main.js" />
+    <Content Include="Content\js\modernizr-2.6.2.min.js" />
+    <Content Include="Content\js\respond.min.js" />
+    <Content Include="Content\prism\prism.css" />
+    <Content Include="Content\prism\prism.js" />
+    <Content Include="Content\QPlayer\css\player.css" />
+    <Content Include="Content\QPlayer\img\2.png" />
+    <Content Include="Content\QPlayer\img\audio_sprite.png" />
+    <Content Include="Content\QPlayer\index.html" />
+    <Content Include="Content\QPlayer\js\jquery.marquee.min.js" />
+    <Content Include="Content\QPlayer\js\jquery.min.js" />
+    <Content Include="Content\QPlayer\js\player.js" />
+    <Content Include="Content\services.html" />
+    <Content Include="Content\simditor\images\image.png" />
+    <Content Include="Content\simditor\scripts\hotkeys.js" />
+    <Content Include="Content\simditor\scripts\hotkeys.min.js" />
+    <Content Include="Content\simditor\scripts\jquery.min.js" />
+    <Content Include="Content\simditor\scripts\module.js" />
+    <Content Include="Content\simditor\scripts\module.min.js" />
+    <Content Include="Content\simditor\scripts\simditor.js" />
+    <Content Include="Content\simditor\scripts\simditor.min.js" />
+    <Content Include="Content\simditor\scripts\uploader.js" />
+    <Content Include="Content\simditor\scripts\uploader.min.js" />
+    <Content Include="Content\simditor\styles\simditor.css" />
+    <Content Include="Content\timeliner\css\responsive.css" />
+    <Content Include="Content\timeliner\css\screen.css" />
+    <Content Include="Content\timeliner\images\timeline_century_tick.gif" />
+    <Content Include="Content\timeliner\images\timeline_decade_tick.gif" />
+    <Content Include="Content\timeliner\inc\colorbox.css" />
+    <Content Include="Content\timeliner\inc\colorbox.js" />
+    <Content Include="Content\timeliner\inc\images\border.png" />
+    <Content Include="Content\timeliner\inc\images\controls.png" />
+    <Content Include="Content\timeliner\inc\images\loading.gif" />
+    <Content Include="Content\timeliner\inc\images\loading_background.png" />
+    <Content Include="Content\timeliner\inc\images\overlay.png" />
+    <Content Include="Content\timeliner\index.html" />
+    <Content Include="Content\timeliner\js\timeliner.js" />
+    <Content Include="Content\timeliner\js\timeliner.min.js" />
+    <Content Include="Global.asax" />
+    <Content Include="index.html" />
+    <Content Include="Resource\Files\headimage\lue.jpg" />
+    <Content Include="Resource\Files\headimage\lue.png" />
+    <Content Include="Resource\Files\headimage\initial.png" />
+    <Content Include="Resource\Files\music\cover\109951162835476747.jpg" />
+    <Content Include="Resource\Files\music\cover\109951162937669940.jpg" />
+    <Content Include="Resource\Files\music\cover\17801093254116482.jpg" />
+    <Content Include="Resource\Files\music\cover\18771962022944662.jpg" />
+    <Content Include="Resource\Files\music\cover\19067730649109671.jpg" />
+    <Content Include="Resource\Files\music\cover\2426622162519258.jpg.png" />
+    <Content Include="Resource\Files\music\cover\3409585558713989.jpg" />
+    <Content Include="Resource\Files\music\cover\47384_prev.jpg" />
+    <Content Include="Resource\Files\music\cover\5818615534203000.jpg" />
+    <Content Include="Resource\Files\music\cover\61572651167766.jpg.png" />
+    <Content Include="Resource\Files\music\cover\884007348732141.jpg.png" />
+    <Content Include="Resource\Files\music\cover\904898069659836.jpg.png" />
+    <Content Include="Resource\Files\music\cover\93458488376669.jpg.png" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\Handler\HandlerLoginAttribute.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\EditorWorldController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\ExploringRoomController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\MinNoteController.cs" />
+    <Compile Include="Controllers\MinPictureController.cs" />
+    <Compile Include="Controllers\MinWordController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="packages.config" />
+    <Content Include="Content\fonts\bootstrap\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\fonts\bootstrap\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\bootstrap\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\fonts\bootstrap\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\fonts\icomoon\icomoon.eot" />
+    <Content Include="Content\fonts\icomoon\icomoon.ttf" />
+    <Content Include="Content\fonts\icomoon\icomoon.woff" />
+    <Content Include="Content\fonts\icomoon\icomoon\fonts\icomoon.eot" />
+    <Content Include="Content\fonts\icomoon\icomoon\fonts\icomoon.ttf" />
+    <Content Include="Content\fonts\icomoon\icomoon\fonts\icomoon.woff" />
+    <Content Include="Content\fonts\icomoon\icomoon\selection.json" />
+    <Content Include="Views\Layout\_LayoutHome.cshtml" />
+    <Content Include="Content\fonts\simple-line-icons\Simple-Line-Icons.eot" />
+    <Content Include="Content\fonts\simple-line-icons\Simple-Line-Icons.ttf" />
+    <Content Include="Content\fonts\simple-line-icons\Simple-Line-Icons.woff" />
+    <Content Include="Content\fonts\simple-line-icons\Simple-Line-Icons.woff2" />
+    <Content Include="Views\MinPicture\Index.cshtml" />
+    <Content Include="Views\MinNote\Index.cshtml" />
+    <Content Include="Views\MinWord\Index.cshtml" />
+    <Content Include="Configs\database.config" />
+    <Content Include="Configs\log4net.config" />
+    <Content Include="Configs\system.config" />
+    <Content Include="Content\simditor\styles\editor.scss" />
+    <Content Include="Content\simditor\styles\fonticon.scss" />
+    <Content Include="Content\simditor\styles\simditor.scss" />
+    <Content Include="Views\EditorWorld\Index.cshtml" />
+    <Content Include="Views\Layout\_LayoutWhite.cshtml" />
+    <Content Include="Views\MinNote\ViewNote.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Content\fonts\custom\HYChenMeiZiW.ttf" />
+    <Content Include="Content\fonts\custom\HYChunRanShouShuW.ttf" />
+    <Content Include="Content\fonts\custom\HYGuoQiangXingShuW.ttf" />
+    <Content Include="Content\fonts\custom\HYHanShiCuTiJ.ttf" />
+    <Content Include="Content\fonts\custom\HYHanShiTiJ.ttf" />
+    <Content Include="Content\fonts\custom\HYHeLongXingShuW.ttf" />
+    <Content Include="Content\fonts\custom\HYPingAnXingCuJ.ttf" />
+    <Content Include="Content\fonts\custom\HYZhangNaiRenXingShuW.ttf" />
+    <Content Include="Content\fonts\custom\Li-Xuke.ttf" />
+    <Content Include="Content\fonts\custom\LSSST-1498.ttf" />
+    <Content Include="Content\fonts\custom\书体坊兰亭体I.ttf" />
+    <Content Include="Content\fonts\custom\书体坊安景臣钢笔行书.ttf" />
+    <Content Include="Content\fonts\custom\书体坊王学勤钢笔行书.ttf" />
+    <Content Include="Content\fonts\custom\书体坊硬笔行书3500.ttf" />
+    <Content Include="Content\fonts\custom\书体坊赵九江钢笔楷书体.ttf" />
+    <Content Include="Content\fonts\custom\书体坊赵九江钢笔行书体.ttf" />
+    <Content Include="Content\fonts\custom\书体坊雪纯体3500.ttf" />
+    <Content Include="Content\fonts\custom\书体坊颜体.ttf" />
+    <Content Include="Content\fonts\custom\伯乐小清新.ttf" />
+    <Content Include="Content\fonts\custom\全新硬笔楷书简.ttf" />
+    <Content Include="Content\fonts\custom\全新硬笔行书简.ttf" />
+    <Content Include="Content\fonts\custom\全新硬笔隶书简.ttf" />
+    <Content Include="Content\fonts\custom\博洋柳体3500.TTF" />
+    <Content Include="Content\fonts\custom\博洋楷体7000.TTF" />
+    <Content Include="Content\fonts\custom\博洋欧体3500.TTF" />
+    <Content Include="Content\fonts\custom\博洋草书3500.ttf" />
+    <Content Include="Content\fonts\custom\博洋草书7000.ttf" />
+    <Content Include="Content\fonts\custom\博洋行书3500.TTF" />
+    <Content Include="Content\fonts\custom\博洋行书7000.TTF" />
+    <Content Include="Content\fonts\custom\博洋规范字3500.TTF" />
+    <Content Include="Content\fonts\custom\叶根友毛笔行书.ttf" />
+    <Content Include="Content\fonts\custom\叶根友蚕燕隶书.ttf" />
+    <Content Include="Content\fonts\custom\叶根友钢笔行书.ttf" />
+    <Content Include="Content\fonts\custom\叶根友非主流钢笔手写体.ttf" />
+    <Content Include="Content\fonts\custom\孙过庭书谱体.ttf" />
+    <Content Include="Content\fonts\custom\小米兰亭.ttf" />
+    <Content Include="Content\fonts\custom\庞中华行书.ttf" />
+    <Content Include="Content\fonts\custom\庞中华钢笔字体.TTF" />
+    <Content Include="Content\fonts\custom\方正黄草_GBK.ttf" />
+    <Content Include="Content\fonts\custom\段宁硬笔行书.ttf" />
+    <Content Include="Content\fonts\custom\王晓辉行楷字体.ttf" />
+    <Content Include="Content\fonts\custom\米芾字体.ttf" />
+    <Content Include="Content\fonts\custom\米芾毛笔字体.ttf" />
+    <Content Include="Content\fonts\custom\腾祥伯当行楷繁.ttf" />
+    <Content Include="Content\fonts\custom\苏新诗柳楷繁.ttf" />
+    <Content Include="Content\fonts\custom\薛文轩钢笔楷体.ttf" />
+    <Content Include="Content\fonts\custom\迷你简硬笔行书.TTF" />
+    <Content Include="Content\fonts\custom\迷你简黄草体.ttf" />
+    <Content Include="Content\fonts\custom\逐浪创意婉约体.otf" />
+    <Content Include="Content\fonts\custom\逐浪大雪钢笔体.otf" />
+    <Content Include="Content\fonts\custom\逐浪小雪钢笔体.otf" />
+    <Content Include="Content\fonts\custom\逐浪小霞硬楷体.ttf" />
+    <Content Include="Content\fonts\custom\逐浪报人书法行体.otf" />
+    <Content Include="Content\fonts\custom\逐浪时尚钢笔体.otf" />
+    <Content Include="Content\fonts\custom\逐浪湘教钢笔体.otf" />
+    <Content Include="Content\fonts\custom\逐浪瑶小硬.ttf" />
+    <Content Include="Content\fonts\custom\逐浪硬行体.otf" />
+    <Content Include="Content\fonts\custom\郭小语钢笔楷体.ttf" />
+    <Content Include="Content\fonts\custom\金梅毛草书繁.ttf" />
+    <Content Include="Content\fonts\custom\陈继世行楷简体.ttf" />
+    <Content Include="Views\ExploringRoom\Index.cshtml" />
+    <Content Include="Views\Layout\_LayoutNOT.cshtml" />
+    <Content Include="Views\ExploringRoom\CopyWorld.cshtml" />
+    <Content Include="Content\fonts\custom\腾祥麦黑简.ttf" />
+    <Content Include="Content\fonts\custom\陈静的字.ttf" />
+    <Content Include="Content\fonts\custom\初夏体.ttf" />
+    <Content Include="Content\fonts\custom\陈代明粉笔体.otf" />
+    <Content Include="Content\fonts\custom\SentyTEA新蒂下午茶体.ttf" />
+    <Content Include="Views\ExploringRoom\WebCrawl.cshtml" />
+    <Content Include="Views\Error\Index.cshtml" />
+    <Content Include="Views\ExploringRoom\leaveWord.cshtml" />
+    <Content Include="Views\ExploringRoom\FavoritesMusic.cshtml" />
+    <Content Include="Views\MinPicture\Detail.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resource\Files\fontImage\" />
+    <Folder Include="Resource\Files\offic\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SenseLue.Application\SenseLue.Application.csproj">
+      <Project>{A9642431-2EB7-462B-953F-5B8CFDC979AC}</Project>
+      <Name>SenseLue.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SenseLue.Code\SenseLue.Code.csproj">
+      <Project>{ED9FE242-1C4D-46A9-9D19-BE134A65E36C}</Project>
+      <Name>SenseLue.Code</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SenseLue.Data\SenseLue.Data.csproj">
+      <Project>{FB15C28A-C182-4114-89E1-2A96EFC6D9AA}</Project>
+      <Name>SenseLue.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SenseLue.Domain\SenseLue.Domain.csproj">
+      <Project>{F829CA2A-0057-4B76-8285-DFC1FB0390F5}</Project>
+      <Name>SenseLue.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SenseLue.Mapping\SenseLue.Mapping.csproj">
+      <Project>{ca644c40-1ca7-46bb-8853-12ab68610ff2}</Project>
+      <Name>SenseLue.Mapping</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>63565</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:63565/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>此项目引用这台计算机上缺少的 NuGet 程序包。使用 NuGet 程序包还原可下载这些程序包。有关详细信息，请参阅 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.6\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.6\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.3.1\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.3.1\build\Microsoft.Net.Compilers.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

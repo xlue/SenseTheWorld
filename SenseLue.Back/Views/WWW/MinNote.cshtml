@@ -1,0 +1,180 @@
+﻿@using SenseLue.Domain.ViewModel;
+@using SenseLue.Code;
+@{
+    ViewBag.Title = "MinNote";
+    Layout = "~/Views/_LayoutPageBase.cshtml";
+}
+<h2>小记编辑</h2>
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">
+                    <div class="title">Table <a href="javascript:void(0)" onclick="createNote()">Create</a></div>
+                </div>
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Title</th>
+                            <th>Creater</th>
+                            <th>CreateDate</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var minNote in ViewBag.MinNotes as List<MinNoteViewModel>)
+                        {
+                            <tr>
+                                <th scope="row"><a href="javascript:void(0);" onclick="getNote('@minNote.F_Id')">@minNote.F_Id</a> </th>
+                                <td>@minNote.F_Title</td>
+                                <td>@minNote.F_AuthorName</td>
+                                <td>@minNote.F_CreateTime</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<br/>
+@foreach (var label in ViewBag.SenseLabel as List<Common.SenseLabel>)
+{
+    <div class="checkbox3 checkbox-danger checkbox-inline checkbox-check  checkbox-circle checkbox-light">
+        <input type="checkbox" id="chk-@Convert.ToInt16(label)">
+        <label for="chk-@Convert.ToInt16(label)">
+           @label.ToString()
+        </label>
+    </div>
+}
+<input type="hidden" name="field_id" id="field_id" value="0">
+<input id="title" class="form-control" type="text" placeholder="标题" style="border-radius:0px;" />
+<textarea id="descripition" class="form-control" rows="5" style="border-radius:0px;" placeholder="简介/说明"></textarea>
+<textarea id="content" name="content" class="form-control"></textarea>
+<br />
+<div style="margin:0px auto;text-align:center;">
+    <input id="btnsubmit" class="btn btn-primary" type="button" value="提交" style="width:200px;" />
+</div>
+@section StyleHead{
+    <link href="/Content/control/simditor/styles/simditor-html.css" rel="stylesheet" />
+}
+
+@section ScriptBody{
+    <script src="/Content/control/simditor/scripts/simditor-mark.js"></script>
+    <script src="~/Content/control/simditor/scripts/beautify-html.js"></script>
+    <script src="~/Content/control/simditor/scripts/simditor-html.js"></script>
+    <script>
+        var editor;
+        $(function () {
+            $('input:checkbox').click(function () {
+                if ($(this).attr('checked')) {
+                    $(this).removeAttr('checked');
+                } else {
+                    $(this).attr('checked', 'true');
+                }
+            });
+            editor = new Simditor({
+                textarea: $('#content'),
+                toolbar: ['mark', 'title', 'bold', 'italic', 'underline', 'strikethrough', 'color', '|', 'ol', 'ul', 'blockquote', 'code', 'table', '|', 'link', 'image', 'hr', '|', 'indent', 'outdent', '|' ,'html'],
+                codeLanguages: [
+                    { name: 'C++', value: 'c++' },
+                    { name: 'C#', value: 'csharp' },
+                    { name: 'CSS', value: 'css' },
+                    { name: 'HTML,XML', value: 'html' },
+                    { name: 'JSON', value: 'json' },
+                    { name: 'Java', value: 'java' },
+                    { name: 'JavaScript', value: 'js' },
+                    { name: 'Objective C', value: 'oc' },
+                    { name: 'PHP', value: 'php' },
+                    { name: 'Perl', value: 'parl' },
+                    { name: 'Python', value: 'python' },
+                    { name: 'Ruby', value: 'ruby' },
+                    { name: 'SQL', value: 'sql' },
+                ]
+            });
+            $("#btnsubmit").click(function () {
+                var content = editor.getValue();
+                var title = $("#title").val();
+                var fiel_id = $('#field_id').val();
+                var descripition = $("#descripition").val();
+                var check_value = "";
+                $("input:checkbox").each(function () {
+                    if ($(this).attr('checked')) {
+                        check_value += $(this).attr("id").replace('chk-','')+",";
+                    }
+                });
+                if (title == "") {
+                    alert("请填写标题");
+                    $("#title").focus();
+                    return;
+                }
+                $.ajax({
+                    type: 'POST',
+                    url: '/WWW/OperationArticle',
+                    data: {
+                        aId: fiel_id,
+                        aType: 'MinNote',
+                        aTitle: title,
+                        aLabel: check_value,
+                        aDescripition: descripition,
+                        aContent: content,
+                    },
+                    success: function (data) {
+                        if (data == "ok") {
+                            alert("success");
+                        }
+                    }
+                });
+            });
+        });
+
+        function getNote(id) {
+            $.ajax({
+                type: 'post',
+                url: '/WWW/GetNote',
+                data: {
+                    id: id
+                },
+                success: function (data) {
+                    var aLabel;
+                    if (data.F_Label.indexOf(',') > -1) {
+                        aLabel = data.F_Label.split(',');
+                        $.each(aLabel, function (index, value) {
+                            $("input:checkbox").each(function () {
+                                $(this).removeAttr('checked');
+                                if ($(this).attr('id') == ('chk-' + value)) {
+                                    $(this).attr('checked', 'true');
+                                }
+                            });
+                        });
+                    } else {
+                        aLabel = data.F_Label;
+                        $("input:checkbox").each(function () {
+                            $(this).removeAttr('checked');
+                            if ($(this).attr('id') == ('chk-' + aLabel)) {
+                                $(this).attr('checked', 'true');
+                            }
+                        });
+                    }
+
+                    $('#field_id').val(data.F_Id);
+                    $('#title').val(data.F_Title);
+                    editor.setValue(data.F_SenseWord);
+                    $('#title').focus();
+                }
+            });
+        }
+
+        function createNote() {
+            $('#field_id').val(0);
+            $('#title').val('');
+            editor.setValue('');
+            $('#title').focus();
+        }
+    </script>
+}

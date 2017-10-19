@@ -1,0 +1,237 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>我喜爱 音乐</title>
+    <link rel="stylesheet" href="/Content/Qplayer/css/player.css">
+    <style>
+        body {
+            FILTER: Alpha( style=1,opacity=25,finishOpacity=100, startX=50,finishX= 100,startY=50,finishY=100);
+            background-color: #338BD2;
+            /*background-color: #338BD2;*/
+        }
+
+        li {
+            list-style: none;
+            float: left;
+            margin-left:10px;
+            margin-top:10px;
+        }
+
+        a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        .playlist__item_box {
+            position: relative;
+            display: block;
+            overflow: hidden;
+            -moz-box-shadow: 0 1px 2px rgba(0,0,0,.25); /* 老的 Firefox */
+            box-shadow: 0 1px 2px rgba(0,0,0,.25);
+            top: 0;
+            left: 0;
+            right: 0;
+        }
+
+        .playlist__item_box:hover {
+            opacity: 0.8;
+            transition: opacity 0.5s;
+        }
+
+        .mod_cover__icon_play:hover {
+            opacity: 1;
+            transition: opacity 0.5s;
+        }
+
+        .mod_cover__icon_play {
+            background-image: url('/Content/images/cover_play.png');
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin: -35px;
+            width: 70px;
+            height: 70px;
+            filter: alpha(opacity=0);
+            opacity: 0;
+            zoom: 1;
+        }
+
+        .img_cover{
+            width:130px;
+            height:130px;
+        }
+
+        .lue-bg-text {
+            position: absolute;
+            bottom:0;
+            left:0;
+            width:100%;
+            padding:5px 2px;
+            background-color:rgba(0,0,0,.25);
+            color:white;
+            font-size:12px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <ul>
+            <li>
+                <div class="playlist__item_box" >
+                    <img src="/Resource/Files/music/cover/47384_prev.jpg" id="001" _title="美丽拍挡" _mp3="/Resource/Files/music/mp3/47384_prev.mp3" _artist="胡伟立" class="img_cover" style="display: block; visibility: visible;">
+                    <i class="mod_cover__icon_play" ></i>
+                    <div class="lue-bg-text">美丽拍挡 - 胡伟立</div>
+                </div>
+            </li>
+            <li>
+                <div class="playlist__item_box">
+                    <img src="/Resource/Files/music/cover/5976945209049357.jpg" id="002" _title="Because of You" _mp3="/Resource/Files/music/mp3/becauseofYou.mp3" _artist="Josh Vietti" class="img_cover" style="display: block; visibility: visible;">
+                    <i class="mod_cover__icon_play"></i>
+                    <div class="lue-bg-text">Because of You - Josh Vietti</div>
+                </div>
+            </li>
+            <li>
+                <div class="playlist__item_box">
+                    <img src="~/Resource/Files/music/cover/61572651167766.png" id="003" _title="依恋" _mp3="/Resource/Files/music/mp3/yilian.mp3" _artist="蔡淳佳" class="img_cover" style="display: block; visibility: visible;">
+                    <i class="mod_cover__icon_play"></i>
+                    <div class="lue-bg-text">依恋 - 蔡淳佳</div>
+                </div>
+            </li>
+            <li>
+                <div class="playlist__item_box">
+                    <img src="/Resource/Files/music/cover/93458488376669.png" id="004" _title="盛夏的果实" _mp3="/Resource/Files/music/mp3/shenxiadeguoshi.mp3" _artist="莫文蔚" class="img_cover" style="display: block; visibility: visible;">
+                    <i class="mod_cover__icon_play"></i>
+                    <div class="lue-bg-text">盛夏的果实 - 莫文蔚</div>
+                </div>
+            </li>
+            <li>
+                <div class="playlist__item_box">
+                    <img src="/Resource/Files/music/cover/884007348732141.png" id="005" _title="Luv Letter" _mp3="/Resource/Files/music/mp3/luv_Letter.mp3" _artist="DJ Okawari" class="img_cover" style="display: block; visibility: visible;">
+                    <i class="mod_cover__icon_play"></i>
+                    <div class="lue-bg-text">Luv Letter - DJ Okawari</div>
+                </div>
+            </li>
+            <li>
+                <div class="playlist__item_box">
+                    <img src="/Resource/Files/music/cover/904898069659836.png" id="006" _title="高雅~メインテーマ" _mp3="/Resource/Files/music/mp3/gaoya.mp3" _artist="S.E.N.S." class="img_cover" style="display: block; visibility: visible;">
+                    <i class="mod_cover__icon_play"></i>
+                    <div class="lue-bg-text">高雅~メインテーマ - S.E.N.S.</div>
+                </div>
+            </li>
+            <li>
+                <div class="playlist__item_box">
+                    <img src="/Resource/Files/music/cover/2426622162519258.png" id="007" _title="終わりの世界から" _mp3="/Resource/Files/music/mp3/zhongjishijie.mp3" _artist="やなぎなぎ" class="img_cover" style="display: block; visibility: visible;">
+                    <i class="mod_cover__icon_play"></i>
+                    <div class="lue-bg-text">終わりの世界から - やなぎなぎ</div>
+                </div>
+            </li>
+            <li>
+                <div class="playlist__item_box">
+                    <img src="/Resource/Files/music/cover/3409585558713989.jpg" id="008" _title="初恋" _mp3="/Resource/Files/music/mp3/chulian.mp3" _artist="莫文蔚" class="img_cover" style="display: block; visibility: visible;">
+                    <i class="mod_cover__icon_play"></i>
+                    <div class="lue-bg-text">初恋 - 莫文蔚</div>
+                </div>
+            </li>
+            <li>
+                <div class="playlist__item_box">
+                    <img src="/Resource/Files/music/cover/5818615534203000.jpg" id="009" _title="忽然之间" _mp3="/Resource/Files/music/mp3/huranzhijian.mp3" _artist="莫文蔚" class="img_cover" style="display: block; visibility: visible;">
+                    <i class="mod_cover__icon_play"></i>
+                    <div class="lue-bg-text">忽然之间 - 莫文蔚</div>
+                </div>
+            </li>
+            <li>
+                <div class="playlist__item_box">
+                    <img src="/Resource/Files/music/cover/17801093254116482.jpg" id="010" _title="風見鶏" _mp3="/Resource/Files/music/mp3/fenxiangyi.mp3" _artist="DEPAPEPE" class="img_cover" style="display: block; visibility: visible;">
+                    <i class="mod_cover__icon_play"></i>
+                    <div class="lue-bg-text">風見鶏 - DEPAPEPE</div>
+                </div>
+            </li>
+            <li>
+                <div class="playlist__item_box">
+                    <img src="/Resource/Files/music/cover/18771962022944662.jpg" id="011" _title="再也没有" _mp3="/Resource/Files/music/mp3/zaiyemeiyou.mp3" _artist="AY楊佬叁" class="img_cover" style="display: block; visibility: visible;">
+                    <i class="mod_cover__icon_play"></i>
+                    <div class="lue-bg-text">再也没有 - AY楊佬叁</div>
+                </div>
+            </li>
+            <li>
+                <div class="playlist__item_box">
+                    <img src="/Resource/Files/music/cover/19067730649109671.jpg" id="012" _title="非酋" _mp3="/Resource/Files/music/mp3/feiqiu.mp3" _artist="薛明媛/朱贺" class="img_cover" style="display: block; visibility: visible;">
+                    <i class="mod_cover__icon_play"></i>
+                    <div class="lue-bg-text">非酋 - 薛明媛/朱贺</div>
+                </div>
+            </li>
+            <li>
+                <div class="playlist__item_box">
+                    <img src="/Resource/Files/music/cover/936783906911204.png" id="013" _title="Sketch Plane" _mp3="/Resource/Files/music/mp3/sketch_Plane.mp3" _artist="Cam Kelley" class="img_cover" style="display: block; visibility: visible;">
+                    <i class="mod_cover__icon_play"></i>
+                    <div class="lue-bg-text">Sketch Plane - Cam Kelley</div>
+                </div>
+            </li>
+            <li>
+                <div class="playlist__item_box">
+                    <img src="/Resource/Files/music/cover/2475000674186890.png" id="014" _title="Walk Away - Album Version" _mp3="/Resource/Files/music/mp3/walk_Away.mp3" _artist="Dia Frampton" class="img_cover" style="display: block; visibility: visible;">
+                    <i class="mod_cover__icon_play"></i>
+                    <div class="lue-bg-text">Walk Away - Album Version - Dia Frampton</div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+
+    <div id="QPlayer">
+        <div id="pContent">
+            <div id="player">
+                <span class="cover"></span>
+                <div class="ctrl">
+                    <div class="musicTag marquee">
+                        <strong>Title</strong>
+                        <span> - </span>
+                        <span class="artist">Artist</span>
+                    </div>
+                    <div class="progress">
+                        <div class="timer left">0:00</div>
+                        <div class="contr">
+                            <div class="rewind icon"></div>
+                            <div class="playback icon"></div>
+                            <div class="fastforward icon"></div>
+                        </div>
+                        <div class="right">
+                            <div class="liebiao icon"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ssBtn">
+                <div class="adf"></div>
+            </div>
+        </div>
+        <ol id="playlist"></ol>
+    </div>
+    <script src="/Content/Qplayer/js/jquery.min.js"></script>
+    <script src="/Content/Qplayer/js/jquery.marquee.min.js"></script>
+    <script>
+        var playlist = [
+            { id:'000', title: "哆啦a梦", artist: "山野さと子", mp3: "/Resource/Files/music/mp3/duolaameng.mp3", cover: "/Resource/Files/music/cover/duolaameng.jpg", },
+        ];
+        var isRotate = true;
+        var autoplay = false;
+    </script>
+    <script src="/Content/Qplayer/js/player.js"></script>
+    <script>
+
+        function bgChange() {
+            var lis = $('.lib');
+            for (var i = 0; i < lis.length; i += 2)
+                lis[i].style.background = 'rgba(246, 246, 246, 0.5)';
+        }
+        window.onload = bgChange;
+    </script>
+</body>
+</html>

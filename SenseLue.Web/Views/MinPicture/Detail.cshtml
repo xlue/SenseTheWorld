@@ -1,0 +1,63 @@
+﻿@model SenseLue.Domain.ViewModel.MinWordViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Detail</title>
+    <style>
+        body {
+            margin: 0 0;
+            padding: 0 0;
+        }
+        .lue-content {
+            max-width: 660px;
+            z-index: 1;
+            margin: 0 auto;
+        }
+        img {
+            width: 100%;
+        }
+        .lue-main {
+           
+            word-break: break-word;
+            padding-left: 16px;
+            padding-right: 16px;
+        }
+
+        .lue-head {
+        }
+
+        .lue-title{
+            padding: 0px 16px;
+        }
+        .lue-author {
+            display: flex;
+            align-items: center;
+            padding: 0px 16px;
+            color: #808080;
+            font-size: 14px;
+            vertical-align: central;
+        }
+    </style>
+</head>
+<body>
+    <img src="/Content/images/pic2.jpg" />
+    <div class="lue-content">
+        <div class="lue-head">
+            <h2 class="lue-title">@Model.F_Title</h2>
+            <div class="lue-author">
+                <img src="/Resource/Files/headimage/lue.jpg" style="max-height:36px;border-radius: 50%;max-width:36px;margin-right:12px;" />
+                <span>@Model.F_AuthorName · @Model.F_Date</span>
+            </div>
+        </div>
+        <div class="lue-main">
+            @Model.F_Content
+        </div>
+    </div>
+</body>
+</html>

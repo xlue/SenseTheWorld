@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "编辑";
+    ViewBag.EditorWorld = "active";
+    Layout = "~/Views/Layout/_LayoutWhite.cshtml";
+}
+
+
+
+<!-- END: header -->
+<form class="animate-box">
+
+    <input id="minWord" type="radio" value="minWord" name="radioGroup" />
+    <label for="minWord">小字</label>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input id="minNote" type="radio" value="minNote" name="radioGroup" checked="checked" />
+    <label for="minNote">小记</label>
+    <input id="title" class="form-control" type="text" placeholder="标题" style="border-radius:0px;" />
+    <textarea id="descripition" class="form-control" rows="5" style="border-radius:0px;" placeholder="简介/说明"></textarea>
+    <textarea id="content" name="content" class="form-control"></textarea>
+    <textarea id="minWordContent" class="form-control" rows="14" style="display:none" placeholder="随手小字"></textarea>
+    <br />
+    <div style="margin:0px auto;text-align:center;">
+        <input id="btnsubmit" class="btn btn-primary" type="button" value="提交" style="width:200px;" />
+    </div>
+</form>

@@ -1,0 +1,177 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <title>登录</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Free HTML5 Template by FREEHTML5" />
+    <meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
+
+
+
+
+    <!-- Facebook and Twitter integration -->
+    <meta property="og:title" content="" />
+    <meta property="og:image" content="" />
+    <meta property="og:url" content="" />
+    <meta property="og:site_name" content="" />
+    <meta property="og:description" content="" />
+    <meta name="twitter:title" content="" />
+    <meta name="twitter:image" content="" />
+    <meta name="twitter:url" content="" />
+    <meta name="twitter:card" content="" />
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="shortcut icon" href="/Content/favicon.ico">
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,300,700|Roboto:300,400' rel='stylesheet' type='text/css'>
+
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="/Content/css/animate.css">
+    <!-- Icomoon Icon Fonts-->
+    <link rel="stylesheet" href="/Content/css/icomoon.css">
+    <!-- Bootstrap  -->
+    <link rel="stylesheet" href="/Content/css/bootstrap.css">
+
+    <link rel="stylesheet" href="/Content/css/style.css">
+
+
+
+    <!-- Modernizr JS -->
+    <script src="/Content/js/modernizr-2.6.2.min.js"></script>
+    <!-- FOR IE9 below -->
+    <!--[if lt IE 9]>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+
+    <div class="box-wrap">
+        <br><br>
+        <!-- END: header -->
+        <section id="intro">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 text-center">
+                        <div class="intro animate-box">
+                            <h1>已经有一位用户了</h1>
+                            <h3>来到这里，你的想法会迸发而出。</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <main id="main">
+            <div class="container">
+                <div class="col-md-8 col-md-offset-2 animate-box">
+                    
+                        <div class="form-group row">
+                            <div class="col-md-12 field">
+                                <label for="loginname">登录名</label>
+                                <input type="text" name="FName" id="loginname" class="form-control">
+                            </div>
+
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-12 field">
+                                <label for="password">密码</label>
+                                <input type="password" name="FName" id="password" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-12 field">
+                                <button id="login_button" class="btn btn-primary" ><span>登录</span></button>
+                            </div>
+                        </div>
+                        
+                    
+                    <div class="login_tips"></div>
+                </div>
+                <!-- <div class="col-md-4"></div> -->
+                
+            </div>
+        </main>
+
+
+        <footer id="footer" role="contentinfo">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center ">
+                        <div class="footer-widget border">
+                            <p class="pull-left"><small>&copy;2017 Lue.</small></p>
+                            <p class="pull-right">Lue</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+
+    <!-- END: box-wrap -->
+    <!-- jQuery -->
+    <script src="/Content/js/jquery.min.js"></script>
+    <!-- jQuery Easing -->
+    <script src="/Content/js/jquery.easing.1.3.js"></script>
+    <!-- Bootstrap -->
+    <script src="/Content/js/bootstrap.min.js"></script>
+    <!-- Waypoints -->
+    <script src="/Content/js/jquery.waypoints.min.js"></script>
+
+    <!-- Main JS (Do not remove) -->
+    <script src="/Content/js/main.js"></script>
+
+    <script type="text/javascript">
+        $("#login_button").click(function () {
+            
+            var $username = $("#loginname");
+            var $password = $("#password");
+            if ($username.val() == "") {
+                $username.focus();
+                formMessage('请输入用户名/手机号/邮箱。');
+                return false;
+            } else if ($password.val() == "") {
+                $password.focus();
+                formMessage('请输入登录密码。');
+                return false;
+            } else {
+                $("#login_button").attr('disabled', 'disabled').find('span').html("loading...");
+                $.ajax({
+                    url: "/Login/CheckLogin",
+                    data: { username: $.trim($username.val()), password: $.trim($password.val()) },
+                    type: "post",
+                    dataType: "json",
+                    success: function (data) {
+                        if (data.state == "success") {
+                            $("#login_button").find('span').html("登录成功，正在跳转...");
+                            window.setTimeout(function () {
+                                window.location.href = "/MinPicture/Index";
+                            }, 500);
+                        } else {
+                            $("#login_button").removeAttr('disabled').find('span').html("登录");
+                            formMessage(data.message);
+                        }
+                    }
+                });
+            }
+        });
+        document.onkeydown = function (e) {
+            if (!e) e = window.event;
+            if ((e.keyCode || e.which) == 13) {
+                document.getElementById("login_button").focus();
+                document.getElementById("login_button").click();
+            }
+        }
+
+        function formMessage(msg) {
+            $('.login_tips').find('.tips_msg').remove();
+            $('.login_tips').append('<div class="tips_msg"><i class="fa fa-question-circle"></i>' + msg + '</div>');
+        }
+    </script>
+</body>
+</html>

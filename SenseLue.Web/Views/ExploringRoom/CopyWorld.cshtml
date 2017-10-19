@@ -1,0 +1,188 @@
+﻿
+@{
+    ViewBag.Title = "字体规范 by @Lue";
+    Layout = "~/Views/Layout/_LayoutNOT.cshtml";
+}
+@section StyleHead{
+    <style>
+        .masthead {
+            padding: 3rem 1rem;
+            color: rgba(255,255,255,.5);
+            text-align: center;
+            background-color: #2a3440;
+        }
+
+            .masthead h1 {
+                color: #fff;
+                margin-bottom: .25rem;
+            }
+
+            .masthead .icon {
+                display: inline-block;
+                font-size: 3rem;
+                margin: 0 .5rem;
+            }
+
+        .masthead-links {
+            font-size: 2rem;
+        }
+
+            .masthead-links a {
+                color: rgba(255,255,255,.5);
+                text-decoration: none;
+                transition: all .15s linear;
+            }
+
+                .masthead-links a:hover {
+                    color: #fff;
+                }
+
+        @@media (min-width: 38em) {
+            .masthead {
+                padding-top: 4rem;
+                padding-bottom: 4rem;
+            }
+        }
+
+
+        .heading {
+            padding: 2rem 1rem 1.5rem;
+            background-color: #dfe1e8;
+        }
+
+        @@media (min-width: 38em) {
+            .heading {
+                padding: 3rem 3rem 2.5rem;
+            }
+        }
+
+        .section {
+            border-bottom: 1px solid #dfe1e8;
+        }
+    </style>
+}
+
+
+<header class="masthead">
+    <div class="container">
+        <span class="icon">✍</span>
+        <h1>临摹规范 by @@Lue</h1>
+        <p class="lead">书写灵活、稳定、高质量的文字的规范。</p>
+    </div>
+</header>
+
+<div class="heading" id="toc">
+    <h2>字如其人</h2>
+</div>
+<div class="well">
+    <img id="imgShow" src="/Resource/Files/fontImage/default.png" style="width:100%;" />
+</div>
+
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-heading">多功能面板</div>
+        <div class="panel-body">
+            <textarea class="form-control" id="txtContent" rows="3" placeholder="请选择文字类别"></textarea>
+            <br />
+            <div class="dropdown">
+                <select id="selectFont" class="combobox" style="height:35px;">
+                    
+                    <option value="F1">SentyTEA新蒂下午茶体</option>
+                    <option value="F2">凌氏随手体</option>
+                    <option value="F3">伯乐小清新</option>
+                    <option value="F4">博洋草书</option>
+                    <option value="F5">博洋欧体</option>
+                    <option value="F6">博洋规范字</option>
+                    <option value="F7">博洋行书</option>
+                    <option value="F8">博洋楷书</option>
+                    <option value="F9">博洋柳体</option>
+                    <option value="F10">汉仪晨妹子W</option>
+                    <option value="F11">汉仪春然手书</option>
+                    <option value="F12">汉仪国强行书</option>
+                    <option value="F13">汉仪寒石粗体简</option>
+                    <option value="F14">汉仪合龙行书</option>
+                    <option value="F15">汉仪平安行粗简</option>
+                    <option value="F16">李旭科书法</option>
+                    <option value="F17">汉仪张乃仁行书</option>
+                    <option value="F18">陈代明粉笔体</option>
+                    <option value="F19">陈继世行楷简体</option>
+                    <option value="F20">段宁硬笔行书</option>
+                    <option value="F21">方正黄草_GBK</option>
+                    <option value="F22">郭小语钢笔楷体</option>
+                    <option value="F23">伯乐暴躁体</option>
+                    <option value="F24">伯乐俏皮体</option>
+                    <option value="F25">方圆硬笔行书简</option>
+                    <option value="F26">井柏然似手写体</option>
+                    <option value="F27">软笔楷书</option>
+                    <option value="F28">神韵哈天随性体</option>
+                    <option value="F29">阿美简体</option>
+                    <option value="F30">迷你简黄草体</option>
+                    <option value="F31">迷你简硬笔行书</option>
+                    <option value="F32">米芾毛笔字体</option>
+                    <option value="F33">米芾字体</option>
+                    <option value="F34">多米手写体 </option>
+                    <option value="F35">庞中华钢笔字体</option>
+                    <option value="F36">庞中华行书</option>
+                    <option value="F37">全新硬笔行书简</option>
+                    <option value="F38">全新硬笔楷书简</option>
+                    <option value="F39">全新硬笔隶书简</option>
+                    <option value="F40">书体坊安景臣钢笔行书</option>
+                    <option value="F41">书体坊兰亭体</option>
+                    <option value="F42">书体坊王学勤钢笔行书</option>
+                    <option value="F43">书体坊雪纯体3500</option>
+                    <option value="F44">书体坊颜体</option>
+                    <option value="F45">书体坊硬笔行书3500</option>
+                    <option value="F46">书体坊赵九江钢笔行书体</option>
+                    <option value="F47">书体坊赵九江钢笔楷书体</option>
+                    <option value="F48">苏新诗柳楷繁</option>
+                    <option value="F49">孙过庭书谱体</option>
+                    <option value="F50">腾祥伯当行楷繁</option>
+                    <option value="F51">化十体</option>
+                    <option value="F52">王晓辉行楷字体</option>
+                    <option value="F53">小米兰亭</option>
+                    <option value="F54">薛文轩钢笔楷体</option>
+                    <option value="F55">叶根友蚕燕隶书</option>
+                    <option value="F56">叶根友非主流钢笔手写体</option>
+                    <option value="F57">叶根友钢笔行书</option>
+                    <option value="F58">叶根友毛笔行书</option>
+                    <option value="F59">民间手抄写</option>
+                    <option value="F60">世界那么大</option>
+                    <option value="F61">逐浪报人书法行体</option>
+                    <option value="F62">逐浪创意婉约体</option>
+                    <option value="F63">逐浪大雪钢笔体</option>
+                    <option value="F64">逐浪时尚钢笔体</option>
+                    <option value="F65">逐浪湘教钢笔体</option>
+                    <option value="F66">逐浪小霞硬楷体</option>
+                    <option value="F67">逐浪小雪钢笔体</option>
+                    <option value="F68">逐浪瑶小硬</option>
+                    <option value="F69">逐浪硬行体</option>
+                    <option value="F70">初夏体</option>
+                    <option value="F71">陈静的字</option>
+                    <option value="F72">腾祥麦黑简</option>
+                    <option value="F0">萌妹子体</option>
+                </select>
+
+                <button type="button" class="btn btn-default" id="fontShow">显示字体</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section ScriptBody{
+    <script>
+        $('#fontShow').click(function () {
+            var number = $('#selectFont').val();
+            var text = $('#txtContent').val();
+            $.ajax({
+                url: '/ExploringRoom/FontImage',
+                type: 'post',
+                dataType: 'json',
+                data: { "number": number, "text": text },
+                async: false,
+                success: function (data) {
+                    $('#imgShow').attr("src", "/Resource/Files/fontImage/" + data.fileName);
+                }
+            })
+        });
+    </script>
+}

@@ -1,0 +1,218 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+
+    <title>@ViewBag.Title</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="baidu-site-verification" content="eE6XpIC9xm" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="KEYWords" contect="爱米的个人博客">
+    <meta name="DEscription" contect="这是Lue的个人想法实现之地">
+    <meta name="Author" contect="卢乐·Lue">
+    <link rel="icon" href="~/Content/images/luehead.png" type="image/x-icon" />
+
+
+    <!-- Facebook and Twitter integration -->
+    <meta property="og:title" content="" />
+    <meta property="og:image" content="" />
+    <meta property="og:url" content="" />
+    <meta property="og:site_name" content="" />
+    <meta property="og:description" content="" />
+    <meta name="twitter:title" content="" />
+    <meta name="twitter:image" content="" />
+    <meta name="twitter:url" content="" />
+    <meta name="twitter:card" content="" />
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="shortcut icon" href="/Content/favicon.ico">
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,300,700|Roboto:300,400' rel='stylesheet' type='text/css'>
+
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="/Content/css/animate.css">
+    <!-- Icomoon Icon Fonts-->
+    <link rel="stylesheet" href="/Content/css/icomoon.css">
+    <!-- Bootstrap  -->
+    <link rel="stylesheet" href="/Content/css/bootstrap.css">
+
+    <link rel="stylesheet" href="/Content/css/style.css">
+
+
+
+    <!-- Modernizr JS -->
+    <script src="/Content/js/modernizr-2.6.2.min.js"></script>
+    <!-- FOR IE9 below -->
+    <!--[if lt IE 9]>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <link href="/Content/simditor/styles/simditor.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div class="box-wrap">
+        <header role="banner" id="fh5co-header">
+            <div class="container">
+                <nav class="navbar navbar-default">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="fh5co-navbar-brand">
+                                <a class="fh5co-logo" href="#"><img src="/Content/images/brand-nav.png" alt="Closest Logo"></a>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="nav text-center">
+                                <li class="@ViewBag.MinPicture"><a href="/MinPicture/Index"><span>小图</span></a></li>
+                                @*<li class="@ViewBag.MinWord"><a href="/MinWord/Index">小字</a></li>*@
+                                <li class="@ViewBag.MinNote"><a href="/MinNote/Index">小记</a></li>
+                                <li class="@ViewBag.EditorWorld"><a href="/EditorWorld/Index">写</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3">
+                            <ul class="social">
+
+                                <li><a href="#"><img src="~/Resource/Files/headimage/initial.png" style="max-height:30px;border-radius: 50%;" /></a></li>
+
+                                @*@if (SenseLue.Code.OperatorProvider.Provider.GetCurrent() != null)
+                                {
+                                    if (string.IsNullOrEmpty(SenseLue.Code.OperatorProvider.Provider.GetCurrent().HeadIcon))
+                                    {
+                                        <li><a href="#"><img src="~/Resource/Files/headimage/initial.png" style="max-height:30px;border-radius: 50%;" /></a></li>
+                                    }
+                                    else
+                                    {
+                                        <li><a href="#"><img src="@SenseLue.Code.OperatorProvider.Provider.GetCurrent().HeadIcon" style="max-height:30px;border-radius: 50%;" /></a></li>
+                                    }
+
+                                }
+                                else
+                                {
+                                    <li><a href="/Login/Index"><i class="icon-user"></i></a></li>
+                                }*@
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <!-- END: header -->
+
+
+        <section id="work">
+            <div class="container">
+                @RenderBody()
+            </div>
+        </section>
+
+
+        <footer id="footer" role="contentinfo">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center ">
+                        <div class="footer-widget border">
+                            <p class="pull-left"><small>©2017 Lue.</small></p>
+                            <p class="pull-right"><small><a href="http://www.miitbeian.gov.cn/">赣ICP备16001508号-2</a></small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+
+    <!-- END: box-wrap -->
+    <!-- jQuery -->
+    <script src="/Content/js/jquery.min.js"></script>
+    <!-- jQuery Easing -->
+    <script src="/Content/js/jquery.easing.1.3.js"></script>
+    <!-- Bootstrap -->
+    <script src="/Content/js/bootstrap.min.js"></script>
+    <!-- Waypoints -->
+    <script src="/Content/js/jquery.waypoints.min.js"></script>
+
+    <!-- Main JS (Do not remove) -->
+    <script src="/Content/js/main.js"></script>
+    <script src="/Content/simditor/scripts/module.min.js"></script>
+    <script src="/Content/simditor/scripts/hotkeys.min.js"></script>
+    <script src="/Content/simditor/scripts/simditor.min.js"></script>
+
+    <script>
+        var editor;
+        $(function () {
+            editor = new Simditor({
+                textarea: $('#content'),
+                toolbar: ['title', 'bold', 'italic', 'underline', 'strikethrough', 'color', '|', 'ol', 'ul', 'blockquote', 'code', 'table', '|', 'link', 'image', 'hr', '|', 'indent', 'outdent']
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $("#minWord").click(function () {
+                $(".simditor").attr("style", "display:none");
+                $("#descripition").attr("style", "display:none");
+                $("#minWordContent").fadeTo("slow", 1);
+                //$("#minWordContent").attr("style", "display:block");
+            });
+            $("#minNote").click(function () {
+                $(".simditor").fadeTo("slow", 1);
+                $("#descripition").fadeTo("slow", 1);
+                $("#minWordContent").attr("style", "display:none");
+            });
+            $("#btnsubmit").click(function () {
+                var articleType = getRadioBoxValue("radioGroup");
+                var descripition
+                var content;
+                var title;
+                if (articleType == 'minNote') {
+                    if ($("#title").val() == "") {
+                        alert("请填写标题");
+                        $("#title").focus();
+                        return;
+                    }
+                    if ($("#descripition").val() == "") {
+                        alert("请填写简介/说明");
+                        $("#descripition").focus();
+                        return;
+                    }
+                    descripition = $("#descripition").val(); 
+                    title = $("#title").val();
+                    content = editor.getValue();
+                } else {
+                    content = $("#minWordContent").val(); 
+                }
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/EditorWorld/OperationArticle',
+                    data: {
+                        aType: articleType,
+                        aTitle: title,
+                        aDescripition: descripition,
+                        aContent: content,
+                    },
+                    success: function (data) {
+                        if (data == "ok") {
+                            alert("success");
+                        }
+                    }
+
+                });
+            })
+        });
+
+        function getRadioBoxValue(radioName) {
+            var obj = document.getElementsByName(radioName);  //这个是以标签的name来取控件
+            for (i = 0; i < obj.length; i++) {
+                if (obj[i].checked) {
+                    return obj[i].value;
+                }
+            }
+            return "undefined";
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+﻿@model SenseLue.Domain.ViewModel.MinNoteViewModel
+@{
+    ViewBag.Title = "小记 · 未来已来，只是还未流行";
+    ViewBag.MinNote = "active";
+    Layout = "~/Views/Layout/_LayoutHome.cshtml";
+}
+@section StyleHead{
+
+
+<link href="~/Content/prism/prism.css" rel="stylesheet" />
+<script src="~/Content/prism/prism.js"></script>
+}
+@section ScriptBody{
+
+}
+<div class="col-md-8 col-md-offset-2 animate-box">
+    <h1>@Model.F_Title</h1>
+    <span style="font-size:14px;">@Model.F_CreateTime | 作者: <span style="font-weight:700;">@Model.F_AuthorName</span> </span>
+    <br /><br />
+    <div>@Html.Raw(Model.F_SenseWord)</div> 
+</div>
+
+
+
+
